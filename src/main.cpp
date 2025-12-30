@@ -1,8 +1,7 @@
-#include <Arduino.h>
 
-// put function declarations here:
 
-#include "config.h"
+
+#include "cart_header.h"
 
 
 class Led{
@@ -18,8 +17,8 @@ class Led{
     }
     void toggle(){
       ledstate = !ledstate;
-      brightness = brightness;
-      if (LedPin == A0 || LedPin == A1 || LedPin == A2 || LedPin == A3 || LedPin == A4 || LedPin == A5){
+      brightness = brightnes;
+      if (LedPin == A0 || LedPin == 11 || LedPin == 9 || LedPin == A3 || LedPin == A4 || LedPin == A5){
         analogWrite(LedPin,brightness);
       }else{
         digitalWrite(LedPin,ledstate);
@@ -29,15 +28,15 @@ class Led{
   
 };
 Led frontLed(A0, 255);
-Led BlinkR(1);
-Led BlinkL(2);
+Led BlinkR(1,1);
+Led BlinkL(2,1);
 bool state = true;
   int pin;
 int timer;
 int light;
 int kp; int kd; int ki;
 int diff,integ,prop;
-int Millis_befor = 0;
+int Millis_before = 0;
  int preerror;
 void setup() {
   // put your setup code here, to run once:
@@ -65,13 +64,13 @@ void loop() {
   }
   if(dr(13) == 0 && millis()-Millis_before > 1000){
     frontLed.toggle();
-    brightness = light;
+    brightnes = light;
     Millis_before = millis();
   }
   
 }
 void BL_RE(bool site){
-  if(millis()600 == 0){
+  if(millis() % 600 == 0){
     if(site == true){
       BlinkR.toggle();
     }else{
