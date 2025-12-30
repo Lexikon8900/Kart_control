@@ -1,4 +1,4 @@
-#define  ABS_ENABLED true //abs subsyst
+#define  ABS_ENABLED  //abs subsyst
 #define dw digitalWrite
 #define aw analogWrite
 #define dr digitalRead

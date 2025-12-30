@@ -2,12 +2,13 @@
 
 void Abs_system(){
 
-if (ABS_ENABLED){
+ #if defined(ABS_ENABLED)
    if(ROTAA < 1){
     realeseBrake();
    }
+ #endif
 }
-}
+   
 void realeseBrake(){
-  //code to realese brake
+  dw(10,HIGH);//code to realese brake
 }
