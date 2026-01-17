@@ -9,7 +9,7 @@ void engine rpm(){
         }
     }else{
         if(magnet < threshold){
-          dw(zünd_pin,HIGH);
+          dw(zünd_pin,LOW);
           pointer = 0;
         }
     }
