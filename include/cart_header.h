@@ -33,6 +33,12 @@ int brightnes;
 #include <WIFI.h>
 #include <HTTPClient.h>
 #include <ESP32Servo.h>
+#define ENGINE_START
+#define zünd_pin 5
+int threshold = 2000;
+int magnet;
+int pointer = 0;
+
 
 
 

@@ -2,6 +2,10 @@
 
 
 #include "cart_header.h"
+#include "Abs_system.cpp"
+#include "CVT.cpp"
+#include "starter.cpp"
+
 
 
 class Led{
@@ -67,7 +71,17 @@ void loop() {
     brightnes = light;
     Millis_before = millis();
   }
-  
+  #if defined()
+    correction(int upm){
+
+    }
+  #endif
+  if(brakeIsPressed()){
+    brake();
+    #if defined(ABS_ENABLED)
+      Abs_system();
+    #endif
+  }
 }
 void BL_RE(bool site){
   if(millis() % 600 == 0){
@@ -80,18 +94,7 @@ void BL_RE(bool site){
   
  
 }
-int correction(int upm){
-  
-  prop = upm - 1000;
-  diff = prop - preerror;
-  integral =+ prop;
-  int correction = prop*kp + diff*kd + integ*ki;
-  preerror = prop;
-  return correction;
 
-
-  }
-  
  
 
 
