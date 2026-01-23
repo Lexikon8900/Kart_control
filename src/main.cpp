@@ -34,14 +34,6 @@ class Led{
 Led frontLed(A0, 255);
 Led BlinkR(1,1);
 Led BlinkL(2,1);
-bool state = true;
-  int pin;
-int timer;
-int light;
-int kp; int kd; int ki;
-int diff,integ,prop;
-int Millis_before = 0;
- int preerror;
 void setup() {
   // put your setup code here, to run once:
   for (int i = 0; i > 14;i++){
